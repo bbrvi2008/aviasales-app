@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import AviasalesApp from './components/AviasalesApp';
+
+import 'normalize.css';
+import './index.css';
+
 ReactDOM.render(
-  <div>
-    Aviasales app
-  </div>,
+  <AviasalesApp/>,
   document.getElementById('root')
 );
