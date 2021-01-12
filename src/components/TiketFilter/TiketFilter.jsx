@@ -1,15 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import actions from '../../actions/filtering';
 
 import Checkbox from '../Checkbox';
 
 import classes from "./TiketFilter.module.scss";
 
-const TiketFilter = () => {
-  const values = [ 'Все', 'Без пересадок', '1 пересадка', '2 пересадки', '3 пересадки' ];
-  const inputs = values.map(value => {
-
+const TiketFilter = ({ values, clickFilter }) => {
+  const inputs = values.map(({ value, selected }) => {
     return (
-      <Checkbox  value={ value } className={ classes.checkbox } key={ value } />
+      <Checkbox 
+        value={ value } 
+        checked={selected} 
+        className={ classes.checkbox } 
+        key={ value }
+        onChange={(checked) => {
+          clickFilter({
+            value,
+            selected: checked
+          });
+        }} />
     );
   });
 
@@ -20,9 +32,27 @@ const TiketFilter = () => {
       <div>
         {inputs}
       </div>
-
     </div>
   );
 }
 
-export default TiketFilter;
+TiketFilter.defaultProps = {
+  values: [],
+  clickFilter: () => null
+};
+
+TiketFilter.propTypes = {
+  values: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string,
+    selected: PropTypes.bool
+  })),
+  clickFilter: PropTypes.func
+};
+
+const mapStateToProps = ({ filterValues }) => {
+  return {
+    values: filterValues
+  }
+};
+
+export default connect(mapStateToProps, actions)(TiketFilter);

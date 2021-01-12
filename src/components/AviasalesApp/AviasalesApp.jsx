@@ -2,7 +2,7 @@ import React from 'react';
 
 import cn from 'classnames';
 
-import Sorting from '../Sorting';
+import TiketSorter from '../TiketSorter';
 import TiketList from '../TiketList';
 import TiketFilter from "../TiketFilter";
 
@@ -22,7 +22,7 @@ const AviasalesApp = () => {
           <TiketFilter />
         </aside>
         <main className={ classes.main } >
-          <Sorting />
+          <TiketSorter />
           <TiketList />
         </main>
       </div>
