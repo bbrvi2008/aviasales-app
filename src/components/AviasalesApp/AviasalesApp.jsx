@@ -2,9 +2,9 @@ import React from 'react';
 
 import cn from 'classnames';
 
-import TiketSorter from '../TiketSorter';
-import TiketList from '../TiketList';
-import TiketFilter from "../TiketFilter";
+import TicketSorter from '../TicketSorter';
+import TicketList from '../TicketList';
+import TicketFilter from "../TicketFilter";
 
 import classes from './AviasalesApp.module.scss';
 
@@ -19,11 +19,11 @@ const AviasalesApp = () => {
 
       <div className={ cn([ classes['content-wrapper'], classes.content ]) } >
         <aside className={ classes.sidebar } >
-          <TiketFilter />
+          <TicketFilter />
         </aside>
         <main className={ classes.main } >
-          <TiketSorter />
-          <TiketList />
+          <TicketSorter />
+          <TicketList />
         </main>
       </div>
     </div>

@@ -1,4 +1,5 @@
 const initialState = {
+  tickets: [],
   sortValues: [{
     value: 'Самый дешевый',
     selected: true
@@ -74,7 +75,12 @@ const reducer = (state = initialState, action) => {
             selected
           }
         })
-      }
+      };
+    case 'LOADED_TICKETS':
+      return {
+        ...state,
+        tickets: action.payload
+      };
   
     default:
       return state;

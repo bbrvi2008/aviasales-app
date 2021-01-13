@@ -6,9 +6,9 @@ import actions from '../../actions/filtering';
 
 import Checkbox from '../Checkbox';
 
-import classes from "./TiketFilter.module.scss";
+import classes from "./TicketFilter.module.scss";
 
-const TiketFilter = ({ values, clickFilter }) => {
+const TicketFilter = ({ values, clickFilter }) => {
   const inputs = values.map(({ value, selected }) => {
     return (
       <Checkbox 
@@ -36,12 +36,12 @@ const TiketFilter = ({ values, clickFilter }) => {
   );
 }
 
-TiketFilter.defaultProps = {
+TicketFilter.defaultProps = {
   values: [],
   clickFilter: () => null
 };
 
-TiketFilter.propTypes = {
+TicketFilter.propTypes = {
   values: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.string,
     selected: PropTypes.bool
@@ -55,4 +55,4 @@ const mapStateToProps = ({ filterValues }) => {
   }
 };
 
-export default connect(mapStateToProps, actions)(TiketFilter);
+export default connect(mapStateToProps, actions)(TicketFilter);

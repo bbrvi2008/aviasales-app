@@ -6,18 +6,18 @@ import actions from '../../actions/sorting';
 
 import RadioGroup from '../RadioGroup';
 
-const TiketSorter = ({ values, clickSort }) => (
+const TicketSorter = ({ values, clickSort }) => (
   <>
     <RadioGroup groupName="ticket-sorting" values={values} onChange={clickSort} />
   </>
 );
 
-TiketSorter.defaultProps = {
+TicketSorter.defaultProps = {
   values: [],
   clickSort: () => null
 };
 
-TiketSorter.propTypes = {
+TicketSorter.propTypes = {
   values: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.string,
     selected: PropTypes.bool
@@ -31,4 +31,4 @@ const mapStateToProps = ({ sortValues }) => {
   }
 }
 
-export default connect(mapStateToProps, actions)(TiketSorter);
+export default connect(mapStateToProps, actions)(TicketSorter);
