@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import actions from '../../actions/filtering';
+import actions from './TicketFilter.actions';
 
 import Checkbox from '../Checkbox';
 
 import classes from "./TicketFilter.module.scss";
 
-const TicketFilter = ({ values, clickFilter }) => {
+// eslint-disable-next-line no-unused-vars
+const TicketFilter = ({ values, changeFilter, changedFilter }) => {
   const inputs = values.map(({ value, selected }) => {
     return (
       <Checkbox 
@@ -17,10 +18,12 @@ const TicketFilter = ({ values, clickFilter }) => {
         className={ classes.checkbox } 
         key={ value }
         onChange={(checked) => {
-          clickFilter({
+          changeFilter({
             value,
             selected: checked
           });
+
+          changedFilter();
         }} />
     );
   });
@@ -38,7 +41,8 @@ const TicketFilter = ({ values, clickFilter }) => {
 
 TicketFilter.defaultProps = {
   values: [],
-  clickFilter: () => null
+  changeFilter: () => null,
+  changedFilter: () => null
 };
 
 TicketFilter.propTypes = {
@@ -46,7 +50,8 @@ TicketFilter.propTypes = {
     value: PropTypes.string,
     selected: PropTypes.bool
   })),
-  clickFilter: PropTypes.func
+  changeFilter: PropTypes.func,
+  changedFilter: PropTypes.func
 };
 
 const mapStateToProps = ({ filterValues }) => {

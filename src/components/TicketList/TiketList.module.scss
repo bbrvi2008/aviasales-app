@@ -4,6 +4,7 @@
   list-style: none;
 }
 
+.empty,
 .item {
   padding: 20px;
   margin-top: 10px;
@@ -13,5 +14,21 @@
 
   @media (min-width: 768px) {
     margin-top: 20px;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
+}
+
+.empty {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  color: #4A4A4A;
+}
+
+.loader {
+  margin-bottom: 5px;
 }

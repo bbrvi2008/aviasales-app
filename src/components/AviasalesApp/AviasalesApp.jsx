@@ -22,7 +22,9 @@ const AviasalesApp = () => {
           <TicketFilter />
         </aside>
         <main className={ classes.main } >
-          <TicketSorter />
+          <div className={ classes.sorter } >
+            <TicketSorter />
+          </div>
           <TicketList />
         </main>
       </div>

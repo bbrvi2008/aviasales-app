@@ -24,7 +24,7 @@ const countStopsFormatter = (stops) => {
       return '1 пересадка';
     case 2:
     case 3:
-      return '3 пересадки';
+      return `${count} пересадки`;
     default:
       return `${count} пересадки(ок)`
   }

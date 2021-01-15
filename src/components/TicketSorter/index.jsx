@@ -2,19 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import actions from '../../actions/sorting';
+import actions from './TicketSorter.actions';
 
 import RadioGroup from '../RadioGroup';
 
-const TicketSorter = ({ values, clickSort }) => (
+const TicketSorter = ({ values, changeSort, changedSort }) => (
   <>
-    <RadioGroup groupName="ticket-sorting" values={values} onChange={clickSort} />
+    <RadioGroup groupName="ticket-sorting" values={values} onChange={value => {
+        changeSort(value);
+        changedSort();
+      }} />
   </>
 );
 
 TicketSorter.defaultProps = {
   values: [],
-  clickSort: () => null
+  changeSort: () => null,
+  changedSort: () => null
 };
 
 TicketSorter.propTypes = {
@@ -22,7 +26,8 @@ TicketSorter.propTypes = {
     value: PropTypes.string,
     selected: PropTypes.bool
   })),
-  clickSort: PropTypes.func
+  changeSort: PropTypes.func,
+  changedSort: PropTypes.func
 };
 
 const mapStateToProps = ({ sortValues }) => {

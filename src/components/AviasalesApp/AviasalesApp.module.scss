@@ -23,6 +23,7 @@
   padding: 0 10px 20px;
 
   @media (min-width: 768px) {
+    padding: 0;
     padding-bottom: 120px;
   }
 }
@@ -44,10 +45,13 @@
 }
 
 .main {
-
   @media (min-width: 768px) {
     margin-left: 272px;
   }
+}
+
+.sorter {
+  margin-bottom: 20px;
 }
 
 
