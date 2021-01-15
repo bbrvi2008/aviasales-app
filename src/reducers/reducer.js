@@ -77,12 +77,12 @@ const sortTickets = (tickets, sorters) => {
 }
 
 function guid() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (cc) => {
       // eslint-disable-next-line no-bitwise
-      const r = Math.random()*16|0; 
+      const rr = Math.random()*16|0; 
       // eslint-disable-next-line no-bitwise
-      const v = c === 'x' ? r : (r&0x3|0x8);
-      return v.toString(16);
+      const vv = cc === 'x' ? rr : (rr&0x3|0x8);
+      return vv.toString(16);
   });
 }
 
